@@ -1,0 +1,7 @@
+{
+  "name": "Remix: Minchu\u0027s Den - Immersive 4D Experience",
+  "description": "A premium, immersive 16-page digital experience for Minchu\u0027s Den dog boarding and training facility, featuring 3D WebGL elements, GSAP animations, and a seamless booking funnel.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
