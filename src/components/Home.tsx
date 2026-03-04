@@ -81,17 +81,22 @@ export const Home = () => {
       '-=1'
     );
 
-    // Scroll-based scaling for hero
-    gsap.to(headingRef.current, {
-      scale: 1.1,
-      opacity: 0.5,
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true,
+    // Scroll-based scaling for hero - Adjusted to disappear later and reset on scroll up
+    gsap.fromTo(headingRef.current, 
+      { scale: 1, opacity: 1, y: 0 },
+      {
+        scale: 1.2,
+        opacity: 0,
+        y: -100,
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+          invalidateOnRefresh: true,
+        }
       }
-    });
+    );
   }, []);
 
   const stats = [
@@ -163,10 +168,10 @@ export const Home = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
             {stats.map((stat, i) => (
               <div key={i}>
-                <h4 className="text-4xl md:text-6xl font-serif text-premium mb-2">
+                <h4 className="text-5xl md:text-7xl font-serif text-premium mb-2 tracking-tighter italic">
                   <CountUp end={stat.value} />
                 </h4>
-                <p className="text-[10px] uppercase tracking-widest font-black text-white/40">{stat.label}</p>
+                <p className="text-[10px] uppercase tracking-[0.3em] font-black text-white/40">{stat.label}</p>
               </div>
             ))}
           </div>
